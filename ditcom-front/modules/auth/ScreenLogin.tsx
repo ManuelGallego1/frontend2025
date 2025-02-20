@@ -1,19 +1,33 @@
 'use client'
 
 import Image from 'next/image';
-import Link from 'next/link';
 import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from '@hookform/resolvers/zod';
 import { loginScheme } from '@/schemes/LoginScheme';
-import { LoginDTO } from '@/interfaces/LoginInterface';
+import { LoginDTO, LoginDAO } from '@/interfaces/LoginInterface';
+import { loginUser } from '@/libs/api-service';
 
 export default function ScreenLogin() {
-  const { register, handleSubmit, formState: { errors } } = useForm<LoginDTO>({
+  const { 
+    register, 
+    handleSubmit, 
+    watch, 
+    formState: { errors } 
+  } = useForm<LoginDTO>({
     resolver: zodResolver(loginScheme)
   });
 
-  const onSubmit: SubmitHandler<LoginDTO> = data => {
-    console.log(data);
+  const onSubmit: SubmitHandler<LoginDTO> = async data => {
+    try {
+      const response: LoginDAO = await loginUser(data);
+
+      if (response.token) {
+        localStorage.setItem('token', response.token);
+        console.log('Login success:', response.user);
+      }
+    } catch (error) {
+      console.error('Login failed:', error);
+    }
   };
 
   return (
@@ -33,7 +47,7 @@ export default function ScreenLogin() {
                   {...register('username', { required: true })}
                   className="w-full px-3 py-2 text-black border rounded-md focus:outline-none focus:ring focus:ring-indigo-300"
                 />
-                {errors.username && <p className="text-red-600">Este campo es requerido</p>}
+                {errors.username && <p className="font-bold">{ errors.username.message }</p>}
               </div>
               <div className="mb-6">
                 <label htmlFor="password" className="block text-white pb-5 text-center">Contraseña</label>
@@ -43,7 +57,7 @@ export default function ScreenLogin() {
                   {...register('password', { required: true })}
                   className="w-full px-3 py-2 text-black border rounded-md focus:outline-none focus:ring focus:ring-indigo-300"
                 />
-                {errors.password && <p className="text-red-600">Este campo es requerido</p>}
+                {errors.password && <p className="font-bold">{ errors.password.message }</p>}
               </div>
               <div>
                 <button
