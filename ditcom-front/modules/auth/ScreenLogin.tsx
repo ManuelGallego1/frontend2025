@@ -8,11 +8,11 @@ import { LoginDTO, LoginDAO } from '@/interfaces/LoginInterface';
 import { loginUser } from '@/libs/api-service';
 
 export default function ScreenLogin() {
-  const { 
-    register, 
-    handleSubmit, 
-    watch, 
-    formState: { errors } 
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors }
   } = useForm<LoginDTO>({
     resolver: zodResolver(loginScheme)
   });
@@ -21,9 +21,25 @@ export default function ScreenLogin() {
     try {
       const response: LoginDAO = await loginUser(data);
 
-      if (response.token) {
-        localStorage.setItem('token', response.token);
-        console.log('Login success:', response.user);
+      if (response.data.token) {
+        localStorage.setItem('token', response.data.token);
+        console.log('Login success:', response.data.user);
+
+        if (response.data.user.active) {
+          switch (response.data.user.role) {
+            case 'admin':
+              console.log('Redirect to admin dashboard');
+              break;
+            case 'user':
+              console.log('Redirect to user dashboard');
+              break;
+            default:
+              console.log('Role not found');
+              break;
+          }
+        } else {
+          console.log('User is not active');
+        }
       }
     } catch (error) {
       console.error('Login failed:', error);
@@ -47,7 +63,7 @@ export default function ScreenLogin() {
                   {...register('username', { required: true })}
                   className="w-full px-3 py-2 text-black border rounded-md focus:outline-none focus:ring focus:ring-indigo-300"
                 />
-                {errors.username && <p className="font-bold">{ errors.username.message }</p>}
+                {errors.username && <p className="font-bold">{errors.username.message}</p>}
               </div>
               <div className="mb-6">
                 <label htmlFor="password" className="block text-white pb-5 text-center">Contraseña</label>
@@ -57,7 +73,7 @@ export default function ScreenLogin() {
                   {...register('password', { required: true })}
                   className="w-full px-3 py-2 text-black border rounded-md focus:outline-none focus:ring focus:ring-indigo-300"
                 />
-                {errors.password && <p className="font-bold">{ errors.password.message }</p>}
+                {errors.password && <p className="font-bold">{errors.password.message}</p>}
               </div>
               <div>
                 <button

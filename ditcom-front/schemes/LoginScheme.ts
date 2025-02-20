@@ -8,4 +8,5 @@ export const loginScheme = z.object({
   password: z.string()
     .min(8, { message: "La contraseña debe tener al menos 8 caracteres" })
     .regex(/[^A-Za-z0-9]/, { message: "Debe contener al menos un carácter especial" })
+    .regex(/[A-Z]/, { message: "Debe contener al menos una mayúscula" })
 });

@@ -4,11 +4,15 @@ export interface LoginDTO {
 }
 
 export interface LoginDAO {
-    token: string;
-    user: {
-        id: number;
-        username: string;
-        email: string;
-        role: string;
+    data: {
+        token: string;
+        user: {
+            id: number;
+            username: string;
+            role: string;
+            active: boolean;
+        }
+        status: number;
+        message: string;
     }
 }
