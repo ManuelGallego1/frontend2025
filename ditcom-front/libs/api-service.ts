@@ -11,7 +11,7 @@ export const loginUser = async (body: LoginDTO) => {
     }
 
     try {
-        const response = await fetch('http://localhost:8000/api/v1/users', headersOptions)
+        const response = await fetch('http://localhost:8000/api/login', headersOptions)
         if (!response.ok) {
             throw new Error(`Error: ${response.status} ${response.statusText}`)
         }

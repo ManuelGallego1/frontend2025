@@ -2,10 +2,10 @@ import { Metadata } from "next"
 import ScreenLogin from "@/modules/auth/ScreenLogin"
 
 export const metadata: Metadata = {
-  title: "Login for ditcom",
-  description: "Login to your account to access your ditcom account",
+  title: "Login",
+  description: "Loggeate a tu cuenta",
   alternates: {
-    canonical: 'https://mydomain.com/login'
+    canonical: 'https://mydomain.com/login',
   }
 }
 
