@@ -11,7 +11,14 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        primary: "",
+        primary: {
+          500: "#ef4444", // Rojo claro
+          600: "#dc2626", // Rojo fuerte
+          800: "#991b1b", // Rojo oscuro
+        },
+      },
+      fontFamily: {
+        madimi: ["Madimi One", "sans-serif"], // Agregar la fuente aquí
       },
     },
   },

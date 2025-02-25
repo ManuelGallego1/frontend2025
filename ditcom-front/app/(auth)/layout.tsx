@@ -1,11 +1,9 @@
-export default function AuthLayout({
-    children
-   }: {
-    children: React.ReactNode;
-   }) {
-     return (
-       <main className="h-[100dvh] flex justify-center items-center">
-         { children }
-       </main>
-     );
-   }
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="es">
+      <body className="font-madimi">
+        {children}
+      </body>
+    </html>
+  );
+}
