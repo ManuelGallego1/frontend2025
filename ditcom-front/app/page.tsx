@@ -4,10 +4,9 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Imagen principal como Hero Section ocupando toda la pantalla */}
       <div className="relative w-full h-screen">
         <Image
-          src="/img/png/Home.jpg" // Reemplaza con la imagen deseada
+          src="/img/png/Home.jpg"
           alt="Imagen principal"
           layout="fill"
           objectFit="cover"

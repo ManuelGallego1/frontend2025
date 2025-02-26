@@ -1,11 +1,11 @@
 'use client'
 
-import Image from 'next/image';
 import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from '@hookform/resolvers/zod';
 import { loginScheme } from '@/schemes/LoginScheme';
 import { LoginDTO, LoginDAO } from '@/interfaces/LoginInterface';
 import { loginUser } from '@/libs/api-service';
+import { useRouter } from "next/navigation";
 
 export default function Form() {
     const {
@@ -16,6 +16,8 @@ export default function Form() {
     } = useForm<LoginDTO>({
         resolver: zodResolver(loginScheme)
     });
+
+    const router = useRouter();
 
     const onSubmit: SubmitHandler<LoginDTO> = async data => {
         try {
@@ -29,7 +31,7 @@ export default function Form() {
                 if (response.data.user.active) {
                     switch (response.data.user.role) {
                         case 'admin':
-                            console.log('Redirect to admin dashboard');
+                            router.push('/admin');
                             break;
                         case 'asesor':
                             console.log('Redirect to asesor dashboard');
@@ -38,7 +40,7 @@ export default function Form() {
                             console.log('Redirect to pyme dashboard');
                             break;
                         case 'super':
-                            console.log('Redirect to super dashboard');
+                            router.push('/admin');
                             break;
                         case 'coordinador':
                             console.log('Redirect to coordinador dashboard');
@@ -81,8 +83,7 @@ export default function Form() {
             <div>
                 <button
                     type="submit"
-                    className="w-full bg-white text-red-600 font-bold py-2 px-4 rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-300 hover:text-white"
-                >
+                    className="w-full bg-white text-boxdark font-bold py-2 px-4 rounded-md hover:bg-boxdark focus:outline-none focus:ring-2 focus:ring-red-300 hover:text-white">
                     Iniciar Sesión
                 </button>
             </div>

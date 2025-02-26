@@ -12,7 +12,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #64748B;
     --foreground: #ededed;
   }
 }
@@ -21,5 +21,5 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: "Madimi One", sans-serif;
+  font-family: "Raleway", sans-serif;
 }

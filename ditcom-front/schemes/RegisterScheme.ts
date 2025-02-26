@@ -10,12 +10,9 @@ export const registerScheme = z.object({
         .regex(/[^A-Za-z0-9]/, { message: "Debe contener al menos un carácter especial" })
         .regex(/[A-Z]/, { message: "Debe contener al menos una mayúscula" }),
 
-    email: z.string()
-        .email({ message: "Correo electrónico inválido" }),
-
     name: z.string()
         .min(4, { message: "Se requiere mínimo 4 caracteres" })
         .regex(/^[a-zA-Z ]+$/, { message: "Solo se permiten letras y espacios" }),
 
-    role: z.enum(["super", "admin", "pyme", "asesor"], { message: "Rol inválido" })
+    role: z.enum(["super", "admin", "pyme", "asesor", "coordinador"], { message: "Rol inválido" })
 });

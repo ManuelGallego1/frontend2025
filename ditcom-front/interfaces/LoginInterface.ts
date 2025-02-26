@@ -1,3 +1,5 @@
+import { UserDAO } from './UserInterface';
+
 export interface LoginDTO {
     password: string;
     username: string;
@@ -10,11 +12,4 @@ export interface LoginDAO {
     }
     status: string;
     message: string;
-}
-
-export interface UserDAO {
-    id: number;
-    username: string;
-    role: string;
-    active: boolean;
 }
