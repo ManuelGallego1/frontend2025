@@ -1,3 +1,4 @@
+import Pagination from '@/components/atoms/Pagination';
 import React from 'react';
 export default function TableUsers() {
   return (
@@ -58,7 +59,10 @@ export default function TableUsers() {
             </div>
           </div>
         ))}
+        <Pagination totalPages={20} />
       </div>
+
+
     </div>
   );
 }
