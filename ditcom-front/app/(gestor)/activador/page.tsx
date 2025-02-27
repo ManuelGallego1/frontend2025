@@ -1,11 +1,8 @@
+import MainScreen from '@/modules/gestor/Activador/MainScreen'
 import React from 'react'
 
-export default function 
-h1() {
+export default function page() {
   return (
-    <div>
-        <h1>Activador</h1>
-        <p>Perfil activador</p>
-    </div>
+    <MainScreen />
   )
 }

@@ -46,6 +46,7 @@ export default {
       success: '#219653',
       danger: '#D34053',
       warning: '#FFA70B',
+      custom: '#FF0000',
     },
     screens: {
       '2xsm': '375px',
