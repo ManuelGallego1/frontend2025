@@ -5,7 +5,7 @@ import StatsAsesor3 from "@/components/molecules/statistics/StatsAsesor3";
 
 export default function MainScreen() {
     return (
-        <div className="container">
+        <div className="container w-full">
             <StatsAsesor1 />
             <StatsAsesor2 />
             <StatsAsesor3 />

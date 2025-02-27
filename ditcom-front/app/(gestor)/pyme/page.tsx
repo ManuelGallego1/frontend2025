@@ -1,4 +1,4 @@
-import MainScreen from '@/modules/gestor/Pyme/MainScreen'
+import MainScreen from '@/modules/gestor/pyme/MainScreen'
 import React from 'react'
 
 export default function Page() {

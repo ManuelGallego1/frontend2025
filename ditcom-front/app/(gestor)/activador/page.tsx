@@ -1,4 +1,4 @@
-import MainScreen from '@/modules/gestor/Activador/MainScreen'
+import MainScreen from '@/modules/gestor/activador/MainScreen'
 import React from 'react'
 
 export default function page() {

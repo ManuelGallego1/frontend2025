@@ -3,7 +3,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 
 export default function StatsAsesor3() {
     return (
-        <div className="w-full min-h-[150px] rounded-lg border border-stroke bg-white py-6 px-7.5 shadow-default flex items-center dark:border-strokedark dark:bg-boxdark">
+        <div className="mb-2 w-[30vw] min-h-[150px] rounded-lg border border-stroke bg-white py-6 px-7.5 shadow-default flex items-center dark:border-strokedark dark:bg-boxdark">
             
             {/* Contenedor del icono */}
             <div className="flex h-20 w-20 items-center justify-center rounded-full bg-red-100 mr-4">
