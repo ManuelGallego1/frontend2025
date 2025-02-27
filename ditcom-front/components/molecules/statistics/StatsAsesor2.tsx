@@ -1,5 +1,4 @@
 import React from 'react';
-import '@fortawesome/fontawesome-free/css/all.min.css'; // Importa FontAwesome
 
 export default function StatsAsesor2() {
     return (
