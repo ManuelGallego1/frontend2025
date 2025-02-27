@@ -16,7 +16,7 @@ export default function NavBar({ onSidebarToggle }: { onSidebarToggle: (isOpen: 
                 <div className="flex items-center">
                     <SideBarButton sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
                 </div>
-                <div className="flex items-center">
+                <div className="flex items-center text-white">
                     <span className="mr-4"><i className="fa-solid fa-circle-user"></i> Nombre Usuario</span>
                     <span className="mr-4"><i className="fa-solid fa-sliders"></i> Ajustes</span>
                     <span className="mr-4"><i className="fa-solid fa-right-from-bracket"></i> Salir</span>

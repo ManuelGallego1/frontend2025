@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -65,33 +66,57 @@ export default function SideBar({ sidebarOpen, setSidebarOpen }: SidebarProps) {
 
             <div className="no-scrollbar flex flex-col overflow-y-auto duration-300 ease-linear">
                 <nav className="mt-5 py-4 px-4 lg:mt-9 lg:px-6">
-                    <ul className="mb-6 flex flex-col gap-1.5">
-                        <li>
-                            <Link href="/admin" className="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4">
-                                <i className="fa-solid fa-chart-line"></i> Dashboard
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="/" className="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4">
-                                <i className="fa-solid fa-phone"></i>Fijo
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="/" className="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4">
-                                <i className="fa-solid fa-mobile-screen"></i>Movil
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="/" className="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4">
-                                <i className="fa-solid fa-signal"></i>Celulares
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="/admin/usuarios" className="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4">
-                                <i className="fa-solid fa-users"></i>Usuarios
-                            </Link>
-                        </li>
-                    </ul>
+                    <div className='super'>
+                        <ul className="mb-6 flex flex-col gap-1.5">
+                            <li>
+                                <Link href="/admin" className="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4">
+                                    <i className="fa-solid fa-chart-line"></i> Dashboard
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/" className="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4">
+                                    <i className="fa-solid fa-phone"></i>Fijo
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/" className="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4">
+                                    <i className="fa-solid fa-mobile-screen"></i>Móvil
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/" className="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4">
+                                    <i className="fa-solid fa-signal"></i>Celulares
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/admin/usuarios" className="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4">
+                                    <i className="fa-solid fa-users"></i>Usuarios
+                                </Link>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className='Asesores'>
+                        <ul>
+                            <li>
+                                <Link href="/asesor" className="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4">
+                                    <i className="fa-solid fa-users"></i>Inicio
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/asesor/ver-movil" className="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4">
+                                    <i className="fa-solid fa-mobile-screen"></i>Ver móvil
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/asesor/ver-fijo" className="group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4">
+                                    <i className="fa-solid fa-phone"></i>Ver fijo
+                                    
+        
+                                </Link>
+                            
+                            </li>
+                        </ul>
+                    </div>
                 </nav>
             </div>
         </aside>
