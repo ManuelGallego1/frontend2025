@@ -6,6 +6,7 @@ import { loginScheme } from '@/schemes/LoginScheme';
 import { LoginDTO, LoginDAO } from '@/interfaces/LoginInterface';
 import { loginUser } from '@/libs/api-service';
 import { useRouter } from "next/navigation";
+import Cookies from 'js-cookie';
 
 export default function Form() {
     const {
@@ -24,7 +25,10 @@ export default function Form() {
             const response: LoginDAO = await loginUser(data);
 
             if (response.data.token) {
-                localStorage.setItem('token', response.data.token);
+                // Set cookies
+                Cookies.set('token', response.data.token, { expires: 7 });
+                Cookies.set('user', JSON.stringify(response.data.user), { expires: 7 });
+
                 console.log(response.data.user);
                 console.log(response.message);
 
@@ -89,4 +93,4 @@ export default function Form() {
             </div>
         </form>
     );
-}  
+}
