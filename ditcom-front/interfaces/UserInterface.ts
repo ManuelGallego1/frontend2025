@@ -1,6 +1,7 @@
 export interface UserDAO {
     id: number;
     username: string;
+    name: string;
     role: UserRole;
     active: boolean;
 }
