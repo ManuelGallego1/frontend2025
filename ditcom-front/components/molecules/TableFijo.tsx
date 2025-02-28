@@ -1,14 +1,11 @@
-"use client";
-
-import React, { useState } from "react";
 import VerInfoButton from "@/components/atoms/VerInfoButton";
 import EditarButton from "@/components/atoms/EditarButton";
 import EliminarButton from "@/components/atoms/EliminarButton";
 import DownloadButton from "../atoms/DownloadButton";
+import SearchInput from "../atoms/SearchInput";
+import DateFilter from "../atoms/DateFilter";
 
 export default function TableFijo() {
-  const [search, setSearch] = useState("");
-  const [dateFilter, setDateFilter] = useState("");
 
   const data = [
     {
@@ -247,16 +244,6 @@ export default function TableFijo() {
     },
   ];
 
-
-  const formattedDateFilter = dateFilter.split("-").reverse().join("/");
-
-
-  const filteredData = data.filter(
-    (user) =>
-      user.OT.toLowerCase().includes(search.toLowerCase()) &&
-      (dateFilter === "" || user.FechaInstalacion === formattedDateFilter)
-  );
-
   return (
     <div className="rounded-lg border border-stroke bg-white p-5 shadow-default dark:border-strokedark dark:bg-boxdark">
       <div className="flex justify-between items-center mb-4">
@@ -266,27 +253,9 @@ export default function TableFijo() {
         <DownloadButton />
       </div>
 
-      <div className="relative w-full mb-4">
-        <i className="fa-solid fa-search absolute left-3 top-1/3 transform -translate-y-2 text-gray-500"></i>
-        <input
-          type="text"
-          placeholder="Buscar OT..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          className="w-full rounded-md border border-gray-300 p-2 pl-10 dark:border-gray-600 dark:bg-gray-800 dark:text-white"
-        />
-      </div>
+      <SearchInput />
 
-      <div className="relative w-full mb-4">
-        <i className="fa-solid fa-calendar absolute left-3 top-1/3 transform -translate-y-2 text-gray-500"></i>
-        <input
-          type="date"
-          placeholder="Filtrar por fecha..."
-          value={dateFilter}
-          onChange={(e) => setDateFilter(e.target.value)}
-          className="w-full rounded-md border border-gray-300 p-2 pl-10 dark:border-gray-600 dark:bg-gray-800 dark:text-white"
-        />
-      </div>
+      <DateFilter />
 
       <div className="overflow-x-auto">
         <div className="max-h-[60vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
@@ -312,7 +281,7 @@ export default function TableFijo() {
             </thead>
 
             <tbody>
-              {filteredData.map((user, index) => (
+              {data.map((user, index) => (
                 <tr
                   key={index}
                   className="border-b border-stroke text-center dark:border-strokedark"
